@@ -1,0 +1,40 @@
+create database berita_db;
+
+use berita_db;
+
+create table user(
+->id_user int(4),
+->name varchar(20),
+->email varchar(20),
+->role varchar(20),
+->primary key(id_user));
+
+create table news(
+->id_news int(4),
+->title varchar(20),
+->image varchar(20),
+->deskripsi text,
+->create_time date,
+->id_user int,
+->primary key(id_news),
+->constraint id_user foreign key(id_user) references user(id_user));
+
+insert into user values ("1","ahmad","ahmad@gmail.com","admin1");
+
+insert into user values ("2","rokhim","rohim@gmail.com","admin2");
+
+insert into news values ("1","Awan Hitam Bergelombang Selimuti Langit Serang Banten","awan.jpg","Awan pekat berbentuk seperti gelombang air laut menyelimuti langit di wilayah Serang, Banten pada Sabtu (3/10/2020) siang. Sejumlah warga sempat mengabadikan video awan hitam pekat memanjang di langit. Salah satu warga, Arief, sempat mengambil momen saat awan hitam bergelayut di atas langit Pasar Tirtayasa, Kabupaten Serang, Banten.\r\n\"Indah tapi serem,\" tulis Arief di status Instastory Instagramnya.\r\nWarga pun kaget dengan muncul fenomena tersebut bahkan khawatir jika terjadi bencana angin puting beliung atau hujan deras menyebabkan banjir. Salah satu warga Taktakan, Kota Serang, Wulan Indah mengaku kaget saat melihat awan seperti gelombang air laut muncul. \"Warga terkejut, kaget, heran pas ngeliat muncul awan kaya ombak. Awannya hitam pekat gitu,\" kata Wulan. Tak lama, kata Wulan, hujan deras pun turun di wilayahnya. Namun, tidak disertai angin maupun kilat.","2020-10-02","1");
+
+insert into news values ("2","erupsi gunung semuru semburkan awan panas","gunung.jpg","Gunung Semeru kembali mengalami erupsi dan mengeluarkan awan panas setinggi 400 meter dari puncak pada Jumat (10/4/2020). Masyarakat diimbau tak beraktivitas di sekitar kawah gunung yang masih berstatus waspada itu. \"Teramati asap kawah utama berwarna putih dengan intensitas tinggi sekitar 400 meter dari puncak,\" kata petugas pos pantau Gunung Semeru, Liswanto, dalam laporannya dikutip dari Tribunmadura.com, Sabtu (11/4/2020)\r\nLiswanto mengatakan, sepanjang pengamatan terjadi 42 kali gempa letusan dengan ampliltudo maksimal 21 milimeter dan lama gempa 30-150 detik. Sementara gempa embusan terjadi dua kali dengan amplitudo 10 milimeter dan lama gempa 35-95 detik. \"Dua kali gempa tektonik jauh dengan amplitudo 20-22 milimeter, dan lama gempa 35-46 detik,\" kata Liswanto. Petugas pantau Gunung Semeru itu menambahkan, cuaca di sekitar gunung cerah hingga mendung. Tercatat, angin bergerak lemah hingga sedang dari utara, timur laut, timur, dan selatan. Meski mengalami peningkatan aktivitas, Pusat Vulkanologi Mitigasi dan Bencana Geologi (PVMBG) masih menetapkan status level II atau waspada.","2020-10-02","2");
+
+select * from news inner join user on news.id_user = user.id_user;
+
+select * from news inner join user on user.id_user = 1;
+
+SELECT * from news inner join user on news.id_news= 1;
+
+
+
+
+
+
